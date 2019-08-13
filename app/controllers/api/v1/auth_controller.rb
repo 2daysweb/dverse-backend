@@ -5,11 +5,12 @@ class Api::V1::AuthController < ApplicationController
   def create # POST /api/v1/login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-       byebug 
+      #  byebug 
       #where user exists AND password is a match
       #send back the user data, and a token
       payload = {"user_id": @user.id}
       token = encode(payload)
+     
       render json: {
         user: @user,
         token: token,
