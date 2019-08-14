@@ -8,6 +8,9 @@
 UserJobPosting.destroy_all
 JobPosting.destroy_all 
 # u = User.create(email: ENV['USER'])
-user_1 = User.create(email: "sahnunhm@gmail.com", password:"pw1", user_type:"employer", avatar:"", bio:"", can_invite:true, resume:"")
+user_1 = User.create(email: "admin@dot.com", password:"pw1", user_type:"admin", avatar:"", bio:"", can_invite:true, resume:"")
+user_2 = User.create(email: "candidate@dot.com", password:"pw1", user_type:"candidate", avatar:"", bio:"", can_invite:true, resume:"")
+user_3 = User.create(email: "employer@dot.com", password:"pw1", user_type:"employer", avatar:"", bio:"This is my bio", can_invite:true, resume:"")
+
 job_posting_1 = JobPosting.create(is_approved:true, is_active:true, body:"This is a job description", title:"Senior NET Developer", industry:"Software Engineering", job_type:"full time")
 user_job_1 = UserJobPosting.create(user_id:user_1.id, job_posting_id:job_posting_1.id)

@@ -12,7 +12,7 @@ class Api::V1::JobPostingsController < ApplicationController
   #Hardcoded attribute values for New Job Posting here, rather than FETCH POST, ideally send "empty object" from frontend and use params here 
   def create
     @JobPosting = JobPosting.create(body:"Default Body", title: "Default Title", industry:"Default Industry", is_active:true, is_approved:true)
-    byebug
+    # byebug
     render json: @JobPosting, status: 201
   end
 
@@ -25,6 +25,7 @@ class Api::V1::JobPostingsController < ApplicationController
   def destroy
     @JobPostingId = @JobPosting.id
     @JobPosting.destroy
+    render json: { message: "removed" }, status: :ok
   end
 
   def show
