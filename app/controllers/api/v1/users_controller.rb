@@ -21,8 +21,26 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create 
-    byebug
-    @User = User.create
-    puts @User
+    
+    @user = User.new(email: params[:email], password: params[:password])
+    
+    if @user.valid?
+      @user.save!
+      payload = {"user_id": @user.id}
+      token = encode(payload)
+     
+      render json: {
+        user: @user,
+        token: token,
+        authenticated: true
+      }
+    else
+      # byebug
+      #where user doesn't exist OR the password isn't correct
+      render json: {
+        message: "INCORRECT! YOU ARE A FRAUD!",
+        authenticated: false
+      }
+    end
   end 
 end
