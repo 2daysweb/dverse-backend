@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_152704) do
+ActiveRecord::Schema.define(version: 2019_08_17_223621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "job_postings", force: :cascade do |t|
+  create_table "jobs", force: :cascade do |t|
     t.boolean "is_approved"
     t.boolean "is_active"
     t.string "body"
@@ -26,9 +26,24 @@ ActiveRecord::Schema.define(version: 2019_08_07_152704) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_job_postings", force: :cascade do |t|
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.integer "yrsExp"
+    t.integer "desiredYrsExp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_jobs", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "job_posting_id"
+    t.integer "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_skills", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,6 +53,8 @@ ActiveRecord::Schema.define(version: 2019_08_07_152704) do
     t.string "password_digest"
     t.string "avatar"
     t.string "bio"
+    t.string "education"
+    t.string "educationType"
     t.boolean "can_invite"
     t.string "resume"
     t.string "user_type"

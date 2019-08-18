@@ -1,6 +1,6 @@
-class CreateJobPostings < ActiveRecord::Migration[5.2]
+class CreateJobs < ActiveRecord::Migration[5.2]
   def change
-    create_table :job_postings do |t|
+    create_table :jobs do |t|
       t.boolean :is_approved
       t.boolean :is_active
       t.string :body

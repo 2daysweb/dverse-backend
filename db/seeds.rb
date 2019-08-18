@@ -5,12 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)User.destroy_all
-UserJobPosting.destroy_all
-JobPosting.destroy_all 
-# u = User.create(email: ENV['USER'])
-user_1 = User.create(email: "admin@dot.com", password:"pw1", user_type:"admin", avatar:"", bio:"", can_invite:true, resume:"")
-user_2 = User.create(email: "candidate@dot.com", password:"pw1", user_type:"candidate", avatar:"", bio:"", can_invite:true, resume:"")
-user_3 = User.create(email: "employer@dot.com", password:"pw1", user_type:"employer", avatar:"", bio:"This is my bio", can_invite:true, resume:"")
+UserJob.destroy_all
+Job.destroy_all 
+UserSkill.destroy_all 
+Skill.destroy_all 
 
-job_posting_1 = JobPosting.create(is_approved:true, is_active:true, body:"This is a job description", title:"Senior NET Developer", industry:"Software Engineering", job_type:"full time")
-user_job_1 = UserJobPosting.create(user_id:user_1.id, job_posting_id:job_posting_1.id)
+# u = User.create(email: ENV['USER'])
+user_1 = User.create(email: "admin@dot.com", password:"pw1", user_type:"admin", avatar:"", bio:"", can_invite:true, resume:"",  education:"", educationType:"")
+user_2 = User.create(email: "candidate@dot.com", password:"pw1", user_type:"candidate", avatar:"", bio:"", can_invite:true, resume:"", education:"", educationType:"")
+user_3 = User.create(email: "employer@dot.com", password:"pw1", user_type:"employer", avatar:"", bio:"This is my bio", can_invite:true, resume:"", education:"", educationType:"")
+
+job_1 = Job.create(is_approved:true, is_active:true, body:"This is a job description", title:"Senior NET Developer", industry:"Software Engineering", job_type:"full time")
+user_job_1 = UserJob.create(user_id:user_1.id, job_id:job_1.id)
+
+skill_1 = Skill.create( name: "Javascript", yrsExp:3, desiredYrsExp: 5)
+# skill_2 = Skill.create(user_id:user_1.id name: "Javascript", yrsExperience:3, desiredYrsExperience: 5)
+# skill_3 = Skill.create(user_id:user_1.id name: "Javascript", yrsExperience:3, desiredYrsExperience: 5)
+
+user_skill_1 = UserSkill.create(skill_id: skill_1.id, user_id:user_1.id)
+
+
+
+

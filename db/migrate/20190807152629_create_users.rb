@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.string :avatar
       t.string :bio
+      t.string :education
+      t.string :educationType
       t.boolean :can_invite
       t.string :resume
       t.string :user_type
