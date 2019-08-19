@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt', '~> 1.5', '>= 1.5.4'
 
+gem 'ngrok-tunnel'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -10,7 +10,7 @@ class Api::V1::AuthController < ApplicationController
       #send back the user data, and a token
       payload = {"user_id": @user.id}
       token = encode(payload)
-     
+      
       render json: {
         user: @user,
         token: token,
