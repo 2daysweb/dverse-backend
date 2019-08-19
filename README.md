@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+||||||| merged common ancestors
+=======
+# dverse-backend
+Dverse staffing website backend
+>>>>>>> 4aef280e2199565930450be46377f25e03713e25
