@@ -7,9 +7,8 @@ class UserSerializer < ActiveModel::Serializer
 
   def file
     begin
-      FOR RUNNING W JUST ACTIVE RECORD
       short_url = Rails.application.routes.url_helpers.rails_blob_path(object.file, only_path: true)
-      url = "http://6b0fba3a.ngrok.io" + short_url
+      url = 'http://b0c7f0a8.ngrok.io' + short_url
     rescue
     return ''
     end
