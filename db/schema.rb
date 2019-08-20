@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2019_08_18_180810) do
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
-    t.integer "yrsExp"
-    t.integer "desiredYrsExp"
+    t.integer "yrs_exp"
+    t.integer "desired_yrs_exp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,10 +72,9 @@ ActiveRecord::Schema.define(version: 2019_08_18_180810) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
-    t.string "avatar"
     t.string "bio"
     t.string "education"
-    t.string "educationType"
+    t.string "education_type"
     t.boolean "can_invite"
     t.string "resume"
     t.string "user_type"

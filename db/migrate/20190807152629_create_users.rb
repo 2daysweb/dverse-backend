@@ -3,10 +3,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :email
       t.string :password_digest
-      t.string :avatar
       t.string :bio
       t.string :education
-      t.string :educationType
+      t.string :education_type
       t.boolean :can_invite
       t.string :resume
       t.string :user_type
