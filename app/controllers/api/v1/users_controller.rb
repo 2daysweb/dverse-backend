@@ -8,7 +8,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    # byebug 
+  
     token = request.headers["Authentication"].split(" ")[1]
     payload = decode(token)
     user = User.find(payload["user_id"])
@@ -34,10 +34,9 @@ class Api::V1::UsersController < ApplicationController
 
   def create 
     
-    @user = User.new(email: params[:email], password: params[:password])
+    @user = User.new(email: params[:email], password: params[:password], user_type: params[:user_type])
     
     if @user.valid?
-      byebug
       @user.save!
       payload = {"user_id": @user.id}
       token = encode(payload)
@@ -51,7 +50,7 @@ class Api::V1::UsersController < ApplicationController
       # byebug
       #where user doesn't exist OR the password isn't correct
       render json: {
-        message: "INCORRECT! YOU ARE A FRAUD!",
+        message: "Failed to Authenticate!",
         authenticated: false
       }
     end
@@ -59,7 +58,7 @@ class Api::V1::UsersController < ApplicationController
 
 
 private def user_params
-  params.permit(:email, :password, :avatar)
+  params.permit(:email, :password, :avatar, :user_type)
 end 
 end
  
