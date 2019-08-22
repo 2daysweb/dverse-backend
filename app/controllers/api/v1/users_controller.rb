@@ -34,7 +34,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create 
     
-    @user = User.new(email: params[:email], password: params[:password], user_type: params[:user_type])
+    @user = User.new(email: params[:email], password: params[:password], user_type: params[:user_type], first_name: params[:first_name], last_name: params[:last_name])
     # byebug
     if @user.valid?
       @user.save!
@@ -58,7 +58,7 @@ class Api::V1::UsersController < ApplicationController
 
 
 private def user_params
-  params.permit(:email, :password, :avatar, :user_type)
+  params.permit(:email, :password, :avatar, :user_type, :last_name, :first_name)
 end 
 end
  
