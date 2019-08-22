@@ -35,7 +35,7 @@ class Api::V1::UsersController < ApplicationController
   def create 
     
     @user = User.new(email: params[:email], password: params[:password], user_type: params[:user_type])
-    
+    # byebug
     if @user.valid?
       @user.save!
       payload = {"user_id": @user.id}
