@@ -4,7 +4,9 @@ class Api::V1::UsersController < ApplicationController
 
  def index 
     @Users = User.all 
+
     render json: @Users, status: 200
+    
   end
 
   def show
@@ -35,8 +37,9 @@ class Api::V1::UsersController < ApplicationController
   def create 
     
     @user = User.new(email: params[:email], password: params[:password], user_type: params[:user_type], first_name: params[:first_name], last_name: params[:last_name])
-    # byebug
+
     if @user.valid?
+     
       @user.save!
       payload = {"user_id": @user.id}
       token = encode(payload)
@@ -58,7 +61,8 @@ class Api::V1::UsersController < ApplicationController
 
 
 private def user_params
-  params.permit(:email, :password, :avatar, :user_type, :last_name, :first_name)
+  params.permit(:email, :password, :user_type, :last_name, :first_name)
 end 
 end
  
+
