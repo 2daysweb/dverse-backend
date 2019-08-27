@@ -18,7 +18,6 @@ require 'jwt'
       
     @verifier = MessageVerifier.new(secret_key, digest:'SHA256',  serializer: JSON)
     #Make verified message
-    
     @signed_message = @verifier.generate(token)
     #Consider limit exp date ---- more secure? --- & rotating--- 
     cookies[:remember_me] = @verifier.generate([@user.id, 100.years.from_now])

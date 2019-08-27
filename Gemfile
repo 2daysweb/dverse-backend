@@ -18,7 +18,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt', '~> 1.5', '>= 1.5.4'
 
-gem 'ngrok-tunnel'
+# gem 'ngrok-tunnel'
+
+gem "google-cloud-storage", "~> 1.8", require: false
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

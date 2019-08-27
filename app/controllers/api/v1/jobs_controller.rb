@@ -9,7 +9,7 @@ class Api::V1::JobsController < ApplicationController
   end
 
 
-  #Hardcoded attribute values for New Job  here, rather than FETCH POST, ideally send "empty object" from frontend and use params here 
+  #Hardcoded values for New Job  here, rather than FETCH POST, ideally send "empty object" from frontend and use params here 
   def create
     @Job = Job.create(body:"Default Body", title: "Default Title", industry:"Default Industry", is_active:true, is_approved:true, job_type:"")
     # byebug
