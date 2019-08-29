@@ -18,7 +18,7 @@ class Api::V1::JobsController < ApplicationController
   end
 
   def update
-    byebug
+    # byebug
     @Job.update(body: params[:body])
     @Job.update(title: params[:title])
     @Job.update(is_approved: params[:is_approved])
