@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_08_18_180810) do
   end
 
   create_table "jobs", force: :cascade do |t|
+    t.boolean "is_draft"
+    t.boolean "is_submitted"
     t.boolean "is_approved"
     t.boolean "is_active"
     t.string "body"
