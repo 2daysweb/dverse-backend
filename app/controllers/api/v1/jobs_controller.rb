@@ -22,6 +22,8 @@ class Api::V1::JobsController < ApplicationController
     @Job.update(body: params[:body])
     @Job.update(title: params[:title])
     @Job.update(is_approved: params[:is_approved])
+    @Job.update(is_submitted: params[:is_submitted])
+    @Job.update(is_draft: params[:is_draft])
     render json: @Job, status: 200
   end
 
