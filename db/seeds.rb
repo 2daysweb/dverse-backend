@@ -12,10 +12,9 @@ UserSkill.destroy_all
 Skill.destroy_all 
 
 # u = User.create(email: ENV['USER'])
+
 user_1 = User.create(email: "sahnunhm@gmail.com", password:"pw1", user_type:'admin')
-
-
-# user_2 = User.create(email: "candidate@dot.com", password:"pw1", user_type:"candidate", bio:"", can_invite:true, resume:"", education:"", educationType:"")
+user_2 = User.create(email: "c1@test.com", password:"pw1", user_type:"candidate", bio:"", can_invite:true, resume:"")
 user_3 = User.create(email: "e1@test.com", password:"pw1", user_type:"employer")
 
 # job_1 = Job.create(is_approved:true, is_active:true, body:"This is a job description", title:"Senior NET Developer", industry:"Software Engineering", job_type:"full time")

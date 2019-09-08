@@ -8,20 +8,24 @@ class Api::V1::JobsController < ApplicationController
     render json: @Jobs, status: 200
   end
 
-
-  #Hardcoded values for New Job  here, rather than FETCH POST, ideally send "empty object" from frontend and use params here 
   def create
     @Job = Job.create(body:"Default Body", title: "Default Title", industry:"Default Industry", status:"draft", job_type:"")
     UserJob.create(user_id:params["user_id"], job_id:@Job.id)
-    #  byebug 
-    render json: @Job, status: 201
+        render json: @Job, status: 201
   end
 
-  def update
-    # byebug
+  def update   
     @Job.update(body: params[:body])
     @Job.update(title: params[:title])
     @Job.update(status: params[:status])
+      if(params[:user_id])
+        job_ids = User.find(params[:user_id]).job_ids
+        bool_included = job_ids.include?(params[:id])
+           if(!bool_included)
+              user = User.find(params[:user_id])
+              @Job.users << user 
+           end
+      end
     render json: @Job, status: 200
   end
 
