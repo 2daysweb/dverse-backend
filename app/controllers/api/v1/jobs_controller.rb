@@ -20,7 +20,8 @@ class Api::V1::JobsController < ApplicationController
     @Job.update(status: params[:status])
       if(params[:user_id])
         job_ids = User.find(params[:user_id]).job_ids
-        bool_included = job_ids.include?(params[:id])
+        bool_included = job_ids.include?((params[:id].to_i))
+       
            if(!bool_included)
               user = User.find(params[:user_id])
               @Job.users << user 
