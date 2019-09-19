@@ -19,17 +19,10 @@ class Api::V1::JobsController < ApplicationController
     @Job.update(title: params[:title])
     @Job.update(status: params[:status])
     job_ids = User.find(params[:user_id]).job_ids
-    byebug
+    
       if(!job_ids.include?(params['id'].to_i))
-        # job_ids = User.find(params[:user_id]).job_ids
-        byebug
-        
-        # bool_included = job_ids.include?((params[:id].to_i))
-          
-        #    if(!bool_included)
-        #       user = User.find(params[:user_id])
-        #       @Job.users << user 
-        #    end
+          user = User.find(params[:user_id])
+          @Job.users << user
       end
     render json: @Job, status: 200
   end
