@@ -215,9 +215,7 @@ GEM
 PLATFORMS
   java
   ruby
-  x64-mingw32
-  x86-mingw32
-  x86-mswin32
+
 
 DEPENDENCIES
   active_model_serializers
