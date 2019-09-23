@@ -14,6 +14,7 @@ class Api::V1::JobsController < ApplicationController
         render json: @Job, status: 201
   end
 
+  #
   def update   
     @Job.update(body: params[:body])
     @Job.update(title: params[:title])
