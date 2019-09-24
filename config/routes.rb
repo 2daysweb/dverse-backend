@@ -5,7 +5,6 @@ Rails.application.routes.draw do
       get '/profile', to: 'users#show' #take in the token
       resources :users
       resources :jobs
-      resources :skills
     end 
   end 
 end
