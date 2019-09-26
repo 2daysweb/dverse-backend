@@ -1,4 +1,3 @@
-require 'byebug'
 class Api::V1::JobsController < ApplicationController
 
   before_action :set_job, only: [:show,:update,:destroy]
