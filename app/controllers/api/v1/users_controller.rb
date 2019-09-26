@@ -1,5 +1,3 @@
-require "byebug"
-
 class Api::V1::UsersController < ApplicationController
 
  def index 
@@ -30,7 +28,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create 
-    # byebug
     @user = User.new(email: params[:email], password: params[:password], user_type: params[:user_type], first_name: params[:first_name], last_name: params[:last_name])
 
     if @user.valid?
@@ -45,7 +42,6 @@ class Api::V1::UsersController < ApplicationController
         authenticated: true
       }
     else
-      # byebug
       #where user doesn't exist OR the password isn't correct
       render json: {
         message: "Failed to Authenticate!!!",

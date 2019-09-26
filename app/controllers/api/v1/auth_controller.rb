@@ -1,5 +1,3 @@
-
-require "byebug"
 class Api::V1::AuthController < ApplicationController
 
   def create # POST /api/v1/login
