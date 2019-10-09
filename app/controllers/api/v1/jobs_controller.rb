@@ -9,6 +9,8 @@ class Api::V1::JobsController < ApplicationController
 
   def create
     @Job = Job.create(body:"Default Body", title: "Default Title", industry:"Default Industry", status:"draft", job_type:"")
+    user = User.find(params[:user_id])
+    @Job.users << user
     UserJob.create(user_id:params["user_id"], job_id:@Job.id)
         render json: @Job, status: 201
   end
@@ -18,7 +20,6 @@ class Api::V1::JobsController < ApplicationController
     @Job.update(title: params[:title])
     @Job.update(status: params[:status])
     job_ids = User.find(params[:user_id]).job_ids
-    
     #Check if user already associated with job
     #TODO: Add error handling
       if(!job_ids.include?(params['id'].to_i))
@@ -39,7 +40,6 @@ class Api::V1::JobsController < ApplicationController
   end
 
   private
-  #Temporarily removed require from job_ .... 
   def job_params
     params.permit(:title, :body, :id, :industry, :user_id)
   end
