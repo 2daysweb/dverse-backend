@@ -1,5 +1,4 @@
 class Api::V1::AuthController < ApplicationController
-require 'byebug'
 
   def create # POST /api/v1/login
     @user = User.find_by(email: params[:email])
