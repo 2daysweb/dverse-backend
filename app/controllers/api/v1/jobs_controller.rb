@@ -8,7 +8,7 @@ class Api::V1::JobsController < ApplicationController
   end
 
   def create
-    @Job = Job.create(body:"Default Body", title: "default title", industry:"default industry", status:"draft", job_type:"")
+    @Job = Job.create(body:"default Body", title: "default title", industry:"default industry", status:"draft", job_type:"")
     UserJob.create(user_id:params["user_id"], job_id:@Job.id)
         render json: @Job, status: 201
   end
