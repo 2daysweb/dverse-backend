@@ -1,6 +1,6 @@
 class Api::V1::AuthController < ApplicationController
 
-  def create # POST /api/v1/login
+  def create 
     @user = User.find_by(email: params[:email])
 
     if @user && @user.authenticate(params[:password])

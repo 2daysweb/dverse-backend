@@ -18,8 +18,6 @@ class Api::V1::JobsController < ApplicationController
     @Job.update(title: params[:title])
     @Job.update(status: params[:status])
     job_ids = User.find(params[:user_id]).job_ids
-    #Check if user already associated with job
-    #TODO: Add error handling
       if(!job_ids.include?(params['id'].to_i))
           user = User.find(params[:user_id])
           @Job.users << user
