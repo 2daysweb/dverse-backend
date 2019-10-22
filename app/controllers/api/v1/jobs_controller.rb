@@ -8,7 +8,7 @@ class Api::V1::JobsController < ApplicationController
   end
 
   def create
-    @Job = Job.create(body:"default Body", title: "default title", industry:"default industry", status:"draft", job_type:"")
+    @Job = Job.create(body:"default body", title: "default title", industry:"default industry", job_type:"", status:"draft")
     UserJob.create(user_id:params["user_id"], job_id:@Job.id)
         render json: @Job, status: 201
   end
@@ -37,7 +37,7 @@ class Api::V1::JobsController < ApplicationController
 
   private
   def job_params
-    params.permit(:title, :body, :id, :industry, :user_id)
+    params.permit(:id, :user_id :body, :title, :industry)
   end
 
   def set_job
