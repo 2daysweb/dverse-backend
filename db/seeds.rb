@@ -7,9 +7,9 @@ Job.destroy_all
 UserSkill.destroy_all 
 Skill.destroy_all 
 
-user_1 = User.create(email: "sahnunhm@gmail.com", password:"pw1", user_type:'admin')
-user_2 = User.create(email: "c1@test.com", password:"pw1", user_type:"candidate", bio:"", can_invite:true, resume:"")
-user_3 = User.create(email: "e1@test.com", password:"pw1", user_type:"employer")
+user_1 = User.create(email: "sahnunhm@gmail.com", password:"pw1pw1", user_type:'admin')
+user_2 = User.create(email: "c1@test.com", password:"pw1pw1", user_type:"candidate", bio:"", can_invite:true, resume:"")
+user_3 = User.create(email: "e1@test.com", password:"pw1pw1", user_type:"employer")
 
 
 
