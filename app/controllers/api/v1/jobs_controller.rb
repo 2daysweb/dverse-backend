@@ -18,17 +18,12 @@ class Api::V1::JobsController < ApplicationController
   end
 
   def update
-    params.each do |k, v| 
-      if(k!==id) do 
-      @Job.update(k:v)
-      @Job.update(k: params[:status])
-      end
-    end
     job_ids = User.find(params[:user_id]).job_ids
       if(!job_ids.include?(params['id'].to_i))
           user = User.find(params[:user_id])
           @Job.users << user
       end
+      @Job.update(params)
     render json: @Job, status: 200
   end
 
