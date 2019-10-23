@@ -18,8 +18,11 @@ class Api::V1::JobsController < ApplicationController
   end
 
   def update
-    params.each do |k, v|  
-     @Job.update(:k, v)   
+    params.each do |k, v| 
+      puts k 
+      puts v
+      v[k] = v[k]
+     @Job.update(k, v)   
     end
     job_ids = User.find(params[:user_id]).job_ids
       if(!job_ids.include?(params['id'].to_i))
