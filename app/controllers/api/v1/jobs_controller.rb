@@ -38,7 +38,7 @@ class Api::V1::JobsController < ApplicationController
 
   private
   def job_params
-    params.permit(:id, :user_id, :body, :title, :industry)
+    params.permit(:id, :body, :industry, :status, :title, :user_id)
   end
 
   def set_job
