@@ -24,7 +24,6 @@ class Api::V1::JobsController < ApplicationController
           user = User.find(params[:user_id])
           @Job.users << user
       end
-      @Job.update({status: params[:status]})  
     render json: @Job, status: 200
   end
 
