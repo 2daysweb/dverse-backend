@@ -18,6 +18,7 @@ class Api::V1::JobsController < ApplicationController
   end
 
   def update 
+    @Job.update(status: params[:status])  
     job_ids = User.find(params[:user_id]).job_ids
       if(!job_ids.include?(params['id'].to_i))
           user = User.find(params[:user_id])
